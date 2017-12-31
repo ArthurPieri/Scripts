@@ -2,7 +2,8 @@
 
 #Functions, can be used in the same way as others programming languages
 #I'll start all the functions with 'f_' so there are no mistakes with variables
-
+#Functions Declarations
+#--------------------------
 function f_hello() {
     echo "Hello!"
     f_now
@@ -10,5 +11,6 @@ function f_hello() {
 function f_now() {
     echo "It's $(date)"
 }
+#--------------------------
 
 f_hello
