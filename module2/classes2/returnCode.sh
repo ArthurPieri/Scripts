@@ -1,8 +1,9 @@
 #! /bin/bash
 
-HOST="googdle.com"
+HOST="google.com"
 
-ping -c 1 ${HOST}
+ping -c 1 ${HOST} && echo "${HOST} reachable."
+
 #if [ "$?" -eq "0" ]
 #then
 #    echo "${HOST} reachable."
@@ -11,7 +12,7 @@ ping -c 1 ${HOST}
 #fi
 
 #Checking for a error code
-if [ "$?" -ne "0" ]
-then
-    echo "${HOST} unreachable."
-fi
+#if [ "$?" -ne "0" ]
+#then
+#    echo "${HOST} unreachable."
+#fi
