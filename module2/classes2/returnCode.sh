@@ -2,7 +2,7 @@
 
 HOST="google.com"
 
-ping -c 1 ${HOST} && echo "${HOST} reachable."
+ping -c 1 ${HOST} && echo "${HOST} reachable." || echo "${HOST} unreachable."
 
 #if [ "$?" -eq "0" ]
 #then
