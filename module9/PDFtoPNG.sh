@@ -25,4 +25,5 @@ then
     convert -density 300 "$PDF" -quality 100 ${SLIDES}
 else
     echo "Por favor informar o arquivo PDF desejado"
+    echo "Please insert a valid PDF file"
 fi
