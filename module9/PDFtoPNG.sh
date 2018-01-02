@@ -7,6 +7,14 @@
 # Pass in a PDF file.
 PDF=$1
 
+#System check so it only runs on GNU/Linux
+SYSTEM_CHECK=$(uname -o)
+if [ "${SYSTEM_CHECK}" != "GNU/Linux" ]
+then
+echo "This script was made for the GNU/Linux system you are using: ${SYSTEM_CHECK}"
+exit 0
+fi
+
 if [ "${PDF}" = *.pdf ]
 then
     # Replace ".pdf" with "-slides.png"
@@ -24,6 +32,5 @@ then
     #Convert the PDF into a series of images.
     convert -density 300 "$PDF" -quality 100 ${SLIDES}
 else
-    echo "Por favor informar o arquivo PDF desejado"
-    echo "Please insert a valid PDF file"
+    echo "Please insert a valid PDF file || Por favor informar o arquivo PDF desejado"
 fi
