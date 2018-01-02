@@ -2,7 +2,7 @@
 
 DEBUG=${1}
 
-if [ "${DEBUG}" = "debug" ]
+if [ "${DEBUG}" = "debug"  ]
 then
     DEBUG=true
 elif [ "${DEBUG}" = "DEBUG" ]
