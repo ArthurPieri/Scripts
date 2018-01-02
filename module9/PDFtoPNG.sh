@@ -7,12 +7,12 @@
 # Pass in a PDF file.
 PDF=$1
 
-#System check so it only runs on GNU/Linux
-SYSTEM_CHECK=$(uname -o)
-if [ "${SYSTEM_CHECK}" != "GNU/Linux" ]
+# OS check so it only runs on GNU/Linux
+OS_CHECK=$(uname -o)
+if [ "${OS_CHECK}" != "GNU/Linux" ]
 then
-echo "This script was made for the GNU/Linux system you are using: ${SYSTEM_CHECK}"
-exit 0
+    echo "This script was made for the GNU/Linux system you are using: ${OS_CHECK}"
+    exit 0
 fi
 
 if [ "${PDF}" = *.pdf ]
