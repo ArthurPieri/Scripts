@@ -10,48 +10,44 @@
 cd ~/
 if [ ! -d "$code" ]; then
     mkdir code
-else
-    cd code
+    echo creating Folder
 fi
+# Entering the Folder
+echo Entering folder
+cd code
+
 #-------------------------------------------------------------------------------
 echo -------------------
 echo Cloning Agilidade
 echo -------------------
 git clone git@github.com:ArthurPieri/Agilidade.git
-echo -------------------
 
 echo -------------------
 echo Cloning Chat app Udemy
 echo -------------------
 git clone git@github.com:ArthurPieri/ChatApp-udemy.git
-echo -------------------
 
 echo -------------------
 echo Cloning ModernJSBootcamp
 echo -------------------
 git clone git@github.com:ArthurPieri/ModernJSBootcamp.git
-echo -------------------
 
 echo -------------------
 echo Cloning Node Js Alura
 echo -------------------
 git clone git@github.com:ArthurPieri/nodejsAlura.git
-echo -------------------
 
 echo -------------------
 echo Cloning Web Dev Bootcamp
 echo -------------------
 git clone git@github.com:ArthurPieri/WebDevBootcamp.git
-echo -------------------
 
 echo -------------------
 echo Cloning Arthur Pieri Site
 echo -------------------
 git clone git@github.com:ArthurPieri/arthurpieriSite.git
-echo -------------------
 
 echo -------------------
 echo Cloning Shell Scripting
 echo -------------------
 git clone git@gitlab.com:arthurpieri/shellScripting.git
-echo -------------------
