@@ -49,3 +49,9 @@ echo Cloning Arthur Pieri Site
 echo -------------------
 git clone git@github.com:ArthurPieri/arthurpieriSite.git
 echo -------------------
+
+echo -------------------
+echo Cloning Shell Scripting
+echo -------------------
+git clone git@gitlab.com:arthurpieri/shellScripting.git
+echo -------------------
