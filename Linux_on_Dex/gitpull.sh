@@ -45,3 +45,9 @@ cd nodejsAlura
 echo Alura Nodejs
 git pull
 echo ---------------------
+
+cd ..
+cd Scripts
+echo Usefull Scripts
+git pull
+echo --------------------
