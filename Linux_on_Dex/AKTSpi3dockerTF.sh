@@ -63,6 +63,13 @@ f_upgrade
     sudo apt install tar curl wget python -y
 # Installing docker
     curl -sSL https://get.docker.com | sh
+# Installing docker-machine
+    base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+    curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+    sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+# Installing docker compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
 # Updating and upgrading
     f_upgrade
 # Downloading node JS on docker
