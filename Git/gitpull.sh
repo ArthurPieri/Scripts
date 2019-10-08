@@ -9,45 +9,45 @@
 # Entering the coding folder to start pulling
 cd ~/code
 # ------------------------------------------------------------------------------
-cd Agilidade/
-echo Agilidade
+cd conceitos_Programacao/
+echo Conceitos programacao
 git pull
 echo ----------------------
 
 cd ..
-cd shellScripting/
-echo shellScripting
+cd UnB/
+echo UnB
 git pull
 #npm i
 echo ----------------------
 
 cd ..
-cd ChatApp-udemy
-echo ChatApp
+cd Gestao/
+echo Gestao
 git pull
 #npm i
 echo ----------------------
 
 cd ..
-cd WebDevBootcamp
-echo Web Developer Bootcamp
+cd ChatApp-udemy/
+echo Chat Uol
 git pull
 echo ----------------------
 
 cd ..
-cd  arthurpieriSite
-echo Site arthurpieri.com
+cd  chatbot/
+echo Chatbot
 git pull
 echo ---------------------
 
 cd ..
-cd nodejsAlura
-echo Alura Nodejs
+cd siteArthur/
+echo Site Arthur
 git pull
 echo ---------------------
 
 cd ..
-cd Scripts
+cd Scripts/
 echo Usefull Scripts
 git pull
 echo --------------------

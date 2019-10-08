@@ -18,9 +18,9 @@ cd code
 
 #-------------------------------------------------------------------------------
 echo -------------------
-echo 1. Cloning programming-concepts
+echo 1. Cloning Conceitos Programacao
 echo -------------------
-git clone git@github.com:ArthurPieri/programmimg-concepts.git
+git clone git@github.com:ArthurPieri/conceitos_Programacao.git
 
 echo -------------------
 echo 2. Cloning UnB
