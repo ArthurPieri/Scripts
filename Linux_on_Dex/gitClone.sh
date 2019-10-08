@@ -18,36 +18,36 @@ cd code
 
 #-------------------------------------------------------------------------------
 echo -------------------
-echo Cloning Agilidade
+echo 1. Cloning programming-concepts
 echo -------------------
-git clone git@github.com:ArthurPieri/Agilidade.git
+git clone git@github.com:ArthurPieri/programmimg-concepts.git
 
 echo -------------------
-echo Cloning Chat app Udemy
+echo 2. Cloning UnB
+echo -------------------
+git clone git@github.com:ArthurPieri/UnB.git
+
+echo -------------------
+echo 3. Cloning Gestao
+echo -------------------
+git clone git@github.com:ArthurPieri/Gestao.git
+
+echo -------------------
+echo 4. Cloning ChatApp-Udemy
 echo -------------------
 git clone git@github.com:ArthurPieri/ChatApp-udemy.git
 
 echo -------------------
-echo Cloning ModernJSBootcamp
+echo 5. Cloning Chatbot
 echo -------------------
-git clone git@github.com:ArthurPieri/ModernJSBootcamp.git
+git clone git@github.com:ArthurPieri/chatbot.git
 
 echo -------------------
-echo Cloning Node Js Alura
+echo 6. Cloning Site Arthur
 echo -------------------
-git clone git@github.com:ArthurPieri/nodejsAlura.git
+git clone git@github.com:ArthurPieri/siteArthur.git
 
 echo -------------------
-echo Cloning Web Dev Bootcamp
-echo -------------------
-git clone git@github.com:ArthurPieri/WebDevBootcamp.git
-
-echo -------------------
-echo Cloning Arthur Pieri Site
-echo -------------------
-git clone git@github.com:ArthurPieri/arthurpieriSite.git
-
-echo -------------------
-echo Cloning Shell Scripting
+echo 7. Cloning Shell Scripting
 echo -------------------
 git clone git@gitlab.com:arthurpieri/shellScripting.git
