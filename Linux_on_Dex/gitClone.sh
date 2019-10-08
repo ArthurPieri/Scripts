@@ -48,6 +48,6 @@ echo -------------------
 git clone git@github.com:ArthurPieri/siteArthur.git
 
 echo -------------------
-echo 7. Cloning Shell Scripting
+echo 7. Cloning Scripts
 echo -------------------
-git clone git@gitlab.com:arthurpieri/shellScripting.git
+git clone git@github.com:ArthurPieri/Scripts.git
