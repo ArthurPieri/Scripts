@@ -35,30 +35,10 @@ then
     set -x
 fi
 #-------------------------------------------------------------------------------------
-# Installing nodejs on raspberry pi
-# creating the nodejs folder 
-mkdir nodejs
-# entering the nodejs folder
-cd ./nodejs
+# Installing nodejs on Linux on De
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
 
-# Downloading nodejs source code
-wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-armv7l.tar.xz
-
-# Unpacking nodejs
-tar -xvf node-v8.9.5-linux-armv7l.tar.xz
-
-# entering the newly created node folder
-cd node-v8.9.4-linux-armv7l/
-
-# copying all the files to the /usr/local so node is available on the command line
-sudo cp -R * /usr/local/
-
-# exiting the two folders
-cd ..
-cd ..
-
-# removing everything
-rm -rv nodejs
+nvm install 12.11.1
 
 # verifying the node instalation
 node -v
