@@ -66,10 +66,10 @@ git commit -m "Automatic Push from script"
 git push
 echo --------------------
 
-cd ..
-cd atlasbot
-echo Atlas Bot
-git add .
-git commit -m "Automatic Push from script"
-git push
-echo --------------------
+#cd ..
+#cd atlasbot
+#echo Atlas Bot
+#git add .
+#git commit -m "Automatic Push from script"
+#git push
+#echo --------------------
