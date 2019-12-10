@@ -52,8 +52,8 @@ echo Usefull Scripts
 git pull
 echo --------------------
 
-#cd ..
-#cd atlasbot
-#echo Atlas Bot
-#git pull
-#echo --------------------
+cd ..
+cd ArthurPieri.github.io
+echo ArthurPieri.github.io
+git pull
+echo --------------------

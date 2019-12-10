@@ -272,8 +272,14 @@ cd code
     echo -------------------
     git clone git@github.com:ArthurPieri/Scripts.git
     #---------------------------------------------------------------------------
+    #---------------------------------------------------------------------------
     echo -------------------
-    echo '8. Setting up username and email git'
+    echo '8, Cloning ArthurPieri.github.io'
+    echo -------------------
+    git clone git@github.com:ArthurPieri/ArthurPieri.github.io.git
+    #---------------------------------------------------------------------------
+    echo -------------------
+    echo '9. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
     echo --------
