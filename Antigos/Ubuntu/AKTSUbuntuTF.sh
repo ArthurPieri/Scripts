@@ -89,6 +89,7 @@ PYTHON_VERSION=$?
 if [ ${PYTHON_VERSION} -ne 0 ]
 then
     sudo apt install python -y
+    sudo apt install python3 -y
 fi
 
 # Installing docker

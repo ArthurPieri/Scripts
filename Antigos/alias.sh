@@ -9,4 +9,6 @@
 
 echo "alias atualizar='sudo apt update && sudo apt upgrade -y'" >> ~/.bashrc
 
+echo "alias gpull='sh ~/code/Scripts/Git/gitpush.sh'" >> ~/.bashrc
+
 alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
