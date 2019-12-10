@@ -110,7 +110,6 @@ f_upgrade
     PYTHON_VERSION=$?
     if [ ${PYTHON_VERSION} -ne 0 ]
     then
-        sudo apt install python -y
         sudo apt install python3 python3-pip python3-setuptools -y
     fi
     #---------------------------------------------------------------------------
