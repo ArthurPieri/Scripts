@@ -119,8 +119,8 @@ f_upgrade
     R_VERSION=$?
     if [ $R_VERSION -ne 0 ]
     then
-        sudo apt install r-base
-        sudo apt install r-base-dev    
+        sudo apt install r-base -y
+        sudo apt install r-base-dev -y    
     fi
     #---------------------------------------------------------------------------
     # Installing protonvpn
@@ -131,7 +131,11 @@ f_upgrade
     # Installing Gnome Tweak tool
     # For Dark mode
     #---------------------------------------------------------------------------
-    sudo apt install gnome-tweak-tool
+    sudo apt install gnome-tweak-tool -y
+    #---------------------------------------------------------------------------
+    # Installing protonvpn
+    #---------------------------------------------------------------------------  
+    sudo snap install code --classic -y
 #-------------------------------------------------------------------------------
 # Creating the folder for save the files
 #-------------------------------------------------------------------------------
@@ -191,34 +195,19 @@ cd ~/Downloads/ifiles
     CODE_VERSION=$?
     if [ $CODE_VERSION -ne 0 ]
     then
-    curl -sSL https://go.microsoft.com/fwlink/?LinkID=760868
+    wget https://go.microsoft.com/fwlink/?LinkID=760868
     sudo dpkg -i code*
     fi
-    #---------------------------------------------------------------------------
-    # Installing Stremio
-    #---------------------------------------------------------------------------
-    curl -sSL https://dl.strem.io/linux/v4.4.54/stremio_4.4.52-1_amd64.deb
-    sudo dpkg -i stremio_4.4.52-1_amd64.deb
     #---------------------------------------------------------------------------
     # Installing Brave Browser
     #---------------------------------------------------------------------------
     sudo apt install apt-transport-https curl -y
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+    wget https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
     alias brcc='chmod a+x /etc/os-release; source /etc/os-release'
     brcc
     echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ eoan main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
     sudo apt update
     sudo apt install brave-browser
-    #---------------------------------------------------------------------------
-    # Installing Discord
-    #---------------------------------------------------------------------------
-    curl -sSL https://discordapp.com/api/download?platform=linux&format=deb
-    sudo dpkg -i discord*
-    #---------------------------------------------------------------------------
-    # Installing Telegram Desktop
-    #---------------------------------------------------------------------------
-    curl -sSL https://telegram.org/dl/desktop/linux
-    sudo dpkg -i tsetup*
 #-------------------------------------------------------------------------------
 # Deleting all the downloaded Files
 #-------------------------------------------------------------------------------
