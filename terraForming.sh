@@ -135,7 +135,7 @@ f_upgrade
     #---------------------------------------------------------------------------
     # Installing protonvpn
     #---------------------------------------------------------------------------  
-    sudo snap install code --classic -y
+    sudo snap install code --classic
 #-------------------------------------------------------------------------------
 # Creating the folder for save the files
 #-------------------------------------------------------------------------------
@@ -188,26 +188,6 @@ cd ~/Downloads/ifiles
         nvm install node
         nvm use node
     fi
-    #---------------------------------------------------------------------------
-    # Installing VScode
-    #---------------------------------------------------------------------------
-    code -v
-    CODE_VERSION=$?
-    if [ $CODE_VERSION -ne 0 ]
-    then
-    wget https://go.microsoft.com/fwlink/?LinkID=760868
-    sudo dpkg -i code*
-    fi
-    #---------------------------------------------------------------------------
-    # Installing Brave Browser
-    #---------------------------------------------------------------------------
-#    sudo apt install apt-transport-https curl -y
-#    wget https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-#    alias brcc='chmod a+x /etc/os-release; source /etc/os-release'
-#    brcc
-#    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ eoan main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-#    sudo apt update
-#    sudo apt install brave-browser
 #-------------------------------------------------------------------------------
 # Deleting all the downloaded Files
 #-------------------------------------------------------------------------------
@@ -294,3 +274,8 @@ cd code
 # Updating and Upgrading the system
 #-------------------------------------------------------------------------------
     f_upgrade
+
+#-------------------------------------------------------------------------------
+# Fix broken
+#-------------------------------------------------------------------------------
+    sudo apt --fix-broken install
