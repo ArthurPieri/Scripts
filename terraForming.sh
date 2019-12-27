@@ -201,13 +201,13 @@ cd ~/Downloads/ifiles
     #---------------------------------------------------------------------------
     # Installing Brave Browser
     #---------------------------------------------------------------------------
-    sudo apt install apt-transport-https curl -y
-    wget https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-    alias brcc='chmod a+x /etc/os-release; source /etc/os-release'
-    brcc
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ eoan main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-    sudo apt update
-    sudo apt install brave-browser
+#    sudo apt install apt-transport-https curl -y
+#    wget https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+#    alias brcc='chmod a+x /etc/os-release; source /etc/os-release'
+#    brcc
+#    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ eoan main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+#    sudo apt update
+#    sudo apt install brave-browser
 #-------------------------------------------------------------------------------
 # Deleting all the downloaded Files
 #-------------------------------------------------------------------------------
