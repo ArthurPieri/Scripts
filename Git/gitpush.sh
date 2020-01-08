@@ -73,3 +73,11 @@ git add .
 git commit -m "Automatic Push from script"
 git push
 echo --------------------
+
+cd ..
+cd GlobalIP
+echo GlobalIP
+git add .
+git commit -m "Automatic Push from script"
+git push
+echo --------------------

@@ -57,3 +57,9 @@ cd ArthurPieri.github.io
 echo ArthurPieri.github.io
 git pull
 echo --------------------
+
+cd ..
+cd GlobalIP
+echo GlobalIP
+git pull
+echo --------------------
