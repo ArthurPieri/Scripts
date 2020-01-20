@@ -2,7 +2,7 @@
 #
 # /HEADER/
 # Terra Forming Script
-# This script is currently on v0.1
+# This script is currently on v2
 # Author: Arthur Pieri
 #
 #-------------------------------------------------------------------------------
@@ -64,7 +64,13 @@ f_upgrade
     sudo apt install curl wget openssh-server openssh-client git tar -y
     touch /boot/ssh
     #---------------------------------------------------------------------------
-    # Instaling Python 2 and 3
+    # Installing Icon pack and Fonts
+    #---------------------------------------------------------------------------
+    sudo add-apt-repository ppa:daniruiz/flat-remix
+    sudo apt-get update
+    sudo apt install flat-remix-gtk fonts-hack-ttf -y
+    #---------------------------------------------------------------------------
+    # Instaling Python 3
     #---------------------------------------------------------------------------
     python --version
     PYTHON_VERSION=$?
@@ -237,10 +243,11 @@ cd code
     echo "alias atualizar='sudo apt update && sudo apt upgrade -y'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gpull'
-    echo "alias gpull='sh ~/code/Scripts/Git/gitpull.sh'" >> ~/.bashrc
+    cp ~/code/Scripts/Git ~/.gitscripts
+    echo "alias gpull='sh ~/.gitscripts/gitpull.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gpush'
-    echo "alias gpush='sh ~/code/Scripts/Git/gitpush.sh'" >> ~/.bashrc
+    echo "alias gpush='sh ~/gitscripts/gitpush.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
 #-------------------------------------------------------------------------------
