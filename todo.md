@@ -2,7 +2,7 @@
 
 1. Adapt Script for Manjaro
 2. ~~Install a Flat remix and Hack font~~
-3. ~~Decide between Bash or Zshell~~ (Zshell)
+3. ~~Decide between Bash or Zshell~~ (NO)
 4. ~~Install silver searcher~~
 5. ~~What is awk?~~
 6. ~~Install Build-essentials and libssl-dev~~
@@ -14,3 +14,4 @@
 12. ~~Use Vim and sublime?~~ (No)
 13. ~~sudo apt install tmux tilix zsh~~ (No)
 14. ~~sudo apt install Ubuntu-restricted-extras~~(no)
+15. Adpt script for a Ubuntu-server env
