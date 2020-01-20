@@ -61,7 +61,7 @@ f_upgrade
     #---------------------------------------------------------------------------
     # Installing ssh, Git, Curl, Tar
     #---------------------------------------------------------------------------
-    sudo apt install curl wget openssh-server openssh-client git tar -y
+    sudo apt install curl wget openssh-server openssh-client git tar silversearcher-ag -y
     touch /boot/ssh
     #---------------------------------------------------------------------------
     # Installing Icon pack and Fonts
@@ -109,6 +109,13 @@ f_upgrade
     sudo rm /var/lib/apt/lists/lock
     sudo rm /var/cache/apt/archives/lock
     sudo rm /var/lib/dpkg/lock
+    #---------------------------------------------------------------------------
+    # Download and Install asdf
+    #---------------------------------------------------------------------------
+    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.6
+    echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+    echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+
 #-------------------------------------------------------------------------------
 # Creating the folder for save the files
 #-------------------------------------------------------------------------------
@@ -229,14 +236,32 @@ cd code
     echo '10. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
-    echo --------
-    git config --global user.email "arthur@arthurpieri.com"
+    echo -------------------
+    git config --global user.email "git@arthurpieri.com"
     echo 'Git Username'
     git config --global user.name "Arthur Pieri"
+    echo -------------------
+    echo 'Create git ssh-key'
+    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "git@arthurpieri.com"
+    echo -------------------
+    #---------------------------------------------------------------------------
+    echo -------------------
+    echo 'Setting up SSH keys'
+    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519_ssh -C "ssh@arthurpieri.com"
+    eval "$(ssh-agent -s)"
+    SSH_AGENT=$?
+    if [ ${SSH_AGENT} -ne 0 ]
+    then
+        echo 'Setting ssh passphrase to ssh agent'
+        ssh-add ~/.ssh/id_ed25519_ssh
+    fi
+    echo -------------------
     #---------------------------------------------------------------------------
     echo -------------------
     echo 'The end'
     echo -------------------
+
+
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
