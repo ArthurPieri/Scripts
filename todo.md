@@ -1,18 +1,16 @@
 # Todo
 
-1. Instalar e adaptar o Script para o Manjaro
-2. Verificar o Flat remix (Apt install) ou Materia
-3. Shell x Zshell
-4. install ag -> sudo apt install silversearcher-ag
-5. pesquisar awk
-6. sudo apt install build-essential libssl-dev 
-7. Aprender a usar "asdf" e instalar o ruby (?)
-8. Arrumar a instalação do Docker e do Docker compose
-9. criar as chaves ssh: ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "boss@arthurpieri.com"
-10. eval "$(ssh-agent -s)"
-11. ssh-add ~/.ssh/id_ed25519
-12. Aprender a usar VIM (Vimgtk3) e Sublime
-13. sudo apt install tmux
-14. sudo apt install tilix zsh
-15. github skwp dotfiles
-16. Ubuntu-restricted-extras
+1. Adapt Script for Manjaro
+2. ~~Install a Flat remix and Hack font~~
+3. ~~Decide between Bash or Zshell~~ (Zshell)
+4. ~~Install silver searcher~~
+5. ~~What is awk?~~
+6. ~~Install Build-essentials and libssl-dev~~
+7. ~~Install asdf~~
+8. ~~Create ssh keys (ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "git@arthurpieri.com")~~
+9. ~~Create ssh keys (ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "ssh@arthurpieri.com")~~
+10. ~~eval "$(ssh-agent -s)"~~
+11. ~~ssh-add~~ ~~~/.ssh/id_ed25519~~
+12. ~~Use Vim and sublime?~~ (No)
+13. ~~sudo apt install tmux tilix zsh~~ (No)
+14. ~~sudo apt install Ubuntu-restricted-extras~~(no)
