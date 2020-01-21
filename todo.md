@@ -15,3 +15,4 @@
 13. ~~sudo apt install tmux tilix zsh~~ (No)
 14. ~~sudo apt install Ubuntu-restricted-extras~~(no)
 15. Adpt script for a Ubuntu-server env
+16. Atom (?)

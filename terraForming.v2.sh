@@ -110,11 +110,12 @@ f_upgrade
     sudo rm /var/cache/apt/archives/lock
     sudo rm /var/lib/dpkg/lock
     #---------------------------------------------------------------------------
-    # Download and Install asdf
+    # Download and Install asdf and ubuntu make
     #---------------------------------------------------------------------------
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.6
     echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
     echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+    sudo snap install ubuntu-make --classic
 
 #-------------------------------------------------------------------------------
 # Creating the folder for save the files
