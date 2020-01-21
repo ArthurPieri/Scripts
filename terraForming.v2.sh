@@ -116,7 +116,6 @@ f_upgrade
     echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
     echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
     sudo snap install ubuntu-make --classic
-
 #-------------------------------------------------------------------------------
 # Creating the folder for save the files
 #-------------------------------------------------------------------------------
@@ -175,72 +174,8 @@ cd ~/Downloads/ifiles
 cd ~/Downloads/
 rm -rf ~/Downloads/ifiles
 #-------------------------------------------------------------------------------
-# Entering the coding folder to start pulling
+# Creating SSH keys
 #-------------------------------------------------------------------------------
-cd ~/
-if [ ! -d "$code" ]; then
-    mkdir code
-    echo creating Folder
-fi
-# Entering the Folder
-echo Entering folder
-cd code
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '1. Cloning Conceitos Programacao'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/conceitos_Programacao.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '2. Cloning UnB'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/UnB.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '3. Cloning Gestao'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Gestao.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '4. Cloning ChatApp-Udemy'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/ChatApp-udemy.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '5. Cloning Chatbot'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/chatbot.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '6. Cloning Site Arthur'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/siteArthur.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '7. Cloning Scripts'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Scripts.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '8. Cloning ArthurPieri.github.io'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/ArthurPieri.github.io.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '9. Cloning GlobalIP'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/GlobalIP.git
-    #---------------------------------------------------------------------------
-
-
-    echo -------------------
-    echo '10. Setting up username and email git'
-    echo -------------------
-    echo 'Git Email'
-    echo -------------------
-    git config --global user.email "git@arthurpieri.com"
-    echo 'Git Username'
-    git config --global user.name "Arthur Pieri"
     echo -------------------
     echo 'Create git ssh-key'
     ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "git@arthurpieri.com"
@@ -262,25 +197,20 @@ cd code
     echo 'The end'
     echo -------------------
 
-
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
-    echo "alias atualizar='sudo apt update && sudo apt upgrade -y'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
-    echo 'Setting up gpull'
-    cp ~/code/Scripts/Git ~/.gitscripts
-    echo "alias gpull='sh ~/.gitscripts/gitpull.sh'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
-    echo 'Setting up gpush'
-    echo "alias gpush='sh ~/gitscripts/gitpush.sh'" >> ~/.bashrc
+    echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
 #-------------------------------------------------------------------------------
 # Updating and Upgrading the system
 #-------------------------------------------------------------------------------
     f_upgrade
-
+#-------------------------------------------------------------------------------
+# Removing initrams
+#-------------------------------------------------------------------------------
+    sudo apt remove flash-kernel initramfs-tools
 #-------------------------------------------------------------------------------
 # Fix broken
 #-------------------------------------------------------------------------------
