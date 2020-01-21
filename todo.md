@@ -16,3 +16,4 @@
 14. ~~sudo apt install Ubuntu-restricted-extras~~(no)
 15. Adpt script for a Ubuntu-server env
 16. Atom (?)
+17. Split the terraforming into 2 pieces, with all the instalation in one bit and the git part on another file
