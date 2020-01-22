@@ -1,7 +1,7 @@
 #! /bin/bash
 #
 # /HEADER/
-# Terra Forming Script
+# Vm Forming Script
 # This script is currently on v2
 # Author: Arthur Pieri
 #
@@ -47,10 +47,6 @@ f_upgrade() {
     sudo apt autoremove -y
     sudo apt autoclean
 }
-#-------------------------------------------------------------------------------
-# End of Functions Declaration
-#-------------------------------------------------------------------------------
-
 #-------------------------------------------------------------------------------
 # Updating and Upgrading the system
 #-------------------------------------------------------------------------------
@@ -103,13 +99,6 @@ f_upgrade
     #---------------------------------------------------------------------------  
     sudo snap install code --classic
     #---------------------------------------------------------------------------
-    # Installing Gnome boxes
-    #---------------------------------------------------------------------------  
-    sudo apt install gnome-boxes
-    sudo rm /var/lib/apt/lists/lock
-    sudo rm /var/cache/apt/archives/lock
-    sudo rm /var/lib/dpkg/lock
-    #---------------------------------------------------------------------------
     # Download and Install asdf and ubuntu make
     #---------------------------------------------------------------------------
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.6
@@ -117,7 +106,7 @@ f_upgrade
     echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
     sudo snap install ubuntu-make --classic
 #-------------------------------------------------------------------------------
-# Creating the folder for save the files
+# Creating the folder to save the files
 #-------------------------------------------------------------------------------
 mkdir ~/Downloads/ifiles
 cd ~/Downloads/ifiles
@@ -191,10 +180,6 @@ rm -rf ~/Downloads/ifiles
         echo 'Setting ssh passphrase to ssh agent'
         ssh-add ~/.ssh/id_ed25519_ssh
     fi
-    echo -------------------
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo 'The end'
     echo -------------------
 
 #-------------------------------------------------------------------------------

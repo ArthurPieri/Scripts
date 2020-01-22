@@ -48,7 +48,7 @@ then
     exit 1
 fi
 #-------------------------------------------------------------------------------
-# Entering the coding folder to start pulling
+# Entering the 'code' folder to start pulling
 #-------------------------------------------------------------------------------
 cd ~/
 if [ ! -d "$code" ]; then
