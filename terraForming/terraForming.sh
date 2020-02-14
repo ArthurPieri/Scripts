@@ -65,45 +65,9 @@ f_upgrade
     sudo apt install python3-pip openvpn network-manager-openvpn-gnome resolvconf dialog -y
     sudo pip3 install protonvpn-cli
     #---------------------------------------------------------------------------
-    # Installing Gnome boxes
+    # Installing VirtualBox
     #---------------------------------------------------------------------------  
-    sudo apt install gnome-boxes
-    sudo rm /var/lib/apt/lists/lock
-    sudo rm /var/cache/apt/archives/lock
-    sudo rm /var/lib/dpkg/lock
-#-------------------------------------------------------------------------------
-# Creating the folder to save the files
-#-------------------------------------------------------------------------------
-mkdir ~/Downloads/ifiles
-cd ~/Downloads/ifiles
-    #---------------------------------------------------------------------------
-    # Installing docker
-    #---------------------------------------------------------------------------
-    docker -v
-    DOCKER_VERSION=$?
-    if [ ${DOCKER_VERSION} -ne 0 ]
-    then
-        echo 'Installing Docker'
-        curl -sSL https://get.docker.com | sh
-    fi
-    #---------------------------------------------------------------------------
-    # Installing docker-compose
-    #---------------------------------------------------------------------------
-    docker-compose -v
-    DOCKER_COMPOSE_VERSION=$?
-    if [ ${DOCKER_COMPOSE_VERSION} -ne 0 ]
-    then
-        echo 'Installing Docker Compose'
-        sudo curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        echo "$(docker-compose --version)"
-        sleep 10
-    fi
-#-------------------------------------------------------------------------------
-# Deleting all the downloaded Files
-#-------------------------------------------------------------------------------
-cd ~/Downloads/
-rm -rf ~/Downloads/ifiles
+    sudo apt install virtualbox
 #-------------------------------------------------------------------------------
 # Creating SSH key
 #-------------------------------------------------------------------------------
