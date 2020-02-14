@@ -15,29 +15,6 @@ then
     exit 1
 fi
 #-------------------------------------------------------------------------------
-# Checking with the CPU architecture is correct
-#-------------------------------------------------------------------------------
-CPU_ARC_CHECK=$(uname -m)
-if [ "${CPU_ARC_CHECK}" != "x86_64" ]
-then
-    echo "This script was made for x86 system, it seems you're using: ${CPU_ARC_CHECK} system"
-    exit 2
-fi
-#-------------------------------------------------------------------------------
-# Verifying if debug mode on
-#-------------------------------------------------------------------------------
-if [ "${1}" = "debug" ]
-then
-    echo "Debug mode on"
-    sleep 5
-# When using -x the PS4 is the variable printed to the screen wich by default is: +
-# You can change the value of PS4
-    PS4='+ ${BASH_SOURCE} - line:${LINENO} : '
-    echo "Test"
-# Set -x start the debug mode
-    set -x
-fi
-#-------------------------------------------------------------------------------
 # All the functions with 'f_' so there are no mistakes with variables
 # Functions Declarations
 #-------------------------------------------------------------------------------
@@ -75,16 +52,6 @@ f_upgrade
         sudo apt install python3 python3-pip python3-setuptools -y
     fi
     #---------------------------------------------------------------------------
-    # Installing R
-    #---------------------------------------------------------------------------
-    R --version
-    R_VERSION=$?
-    if [ $R_VERSION -ne 0 ]
-    then
-        sudo apt install r-base -y
-        sudo apt install r-base-dev -y    
-    fi
-    #---------------------------------------------------------------------------
     # Installing protonvpn
     #---------------------------------------------------------------------------  
     sudo apt install openvpn network-manager-openvpn-gnome resolvconf dialog -y
@@ -98,70 +65,6 @@ f_upgrade
     # Installing code
     #---------------------------------------------------------------------------  
     sudo snap install code --classic
-    #---------------------------------------------------------------------------
-    # Download and Install asdf and ubuntu make
-    #---------------------------------------------------------------------------
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.6
-    echo '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
-    echo '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
-    sudo snap install ubuntu-make --classic
-#-------------------------------------------------------------------------------
-# Creating the folder to save the files
-#-------------------------------------------------------------------------------
-mkdir ~/Downloads/ifiles
-cd ~/Downloads/ifiles
-    #---------------------------------------------------------------------------
-    # Installing docker
-    #---------------------------------------------------------------------------
-    docker -v
-    DOCKER_VERSION=$?
-    if [ ${DOCKER_VERSION} -ne 0 ]
-    then
-        echo 'Installing Docker'
-        curl -sSL https://get.docker.com | sh
-    fi
-    #---------------------------------------------------------------------------
-    # Installing docker-compose
-    #---------------------------------------------------------------------------
-    docker-compose -v
-    DOCKER_COMPOSE_VERSION=$?
-    if [ ${DOCKER_COMPOSE_VERSION} -ne 0 ]
-    then
-        echo 'Installing Docker Compose'
-        sudo curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        echo "$(docker-compose --version)"
-        sleep 10
-    fi
-    #---------------------------------------------------------------------------
-    # Download and Install RStudio
-    #---------------------------------------------------------------------------
-    wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
-    sudo dpkg -i rstudio-*
-    #---------------------------------------------------------------------------
-    # Installing NVM
-    nvm -v 
-    NVM_VERSION=$?
-    if [ $NVM_VERSION -ne 0 ]
-    then
-        sudo apt install build-essential libssl-dev -y
-        wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-    fi
-    #---------------------------------------------------------------------------
-    # Installing Node via NVM
-    #---------------------------------------------------------------------------
-    node -v
-    NODE_VERSION=$?
-    if [ $NODE_VERSION -ne 0 ]
-    then
-        nvm install node
-        nvm use node
-    fi
-#-------------------------------------------------------------------------------
-# Deleting all the downloaded Files
-#-------------------------------------------------------------------------------
-cd ~/Downloads/
-rm -rf ~/Downloads/ifiles
 #-------------------------------------------------------------------------------
 # Creating SSH keys
 #-------------------------------------------------------------------------------
@@ -181,7 +84,6 @@ rm -rf ~/Downloads/ifiles
         ssh-add ~/.ssh/id_ed25519_ssh
     fi
     echo -------------------
-
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
