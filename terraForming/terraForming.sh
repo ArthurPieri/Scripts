@@ -45,7 +45,7 @@ f_upgrade() {
     sudo apt update
     sudo apt upgrade -y
     sudo apt autoremove -y
-    sudo apt autoclean
+    sudo apt autoclean -y
 }
 #-------------------------------------------------------------------------------
 # Updating and Upgrading the system
@@ -85,7 +85,7 @@ f_upgrade
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
-    echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove'" >> ~/.bashrc
+    echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
 #-------------------------------------------------------------------------------
