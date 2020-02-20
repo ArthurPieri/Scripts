@@ -102,8 +102,8 @@ f_upgrade
     # Download and Install asdf and ubuntu make
     #---------------------------------------------------------------------------
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.6
-    echo '\n $HOME/.asdf/asdf.sh' >> ~/.bashrc
-    echo '\n $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+    echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+    echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
     sudo snap install ubuntu-make --classic
 #-------------------------------------------------------------------------------
 # Creating the folder to save the files
