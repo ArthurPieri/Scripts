@@ -87,6 +87,6 @@ cd code
     echo "alias gpull='sh ~/.gitscripts/gitpull.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gpush'
-    echo "alias gpush='sh ~/gitscripts/gitpush.sh'" >> ~/.bashrc
+    echo "alias gpush='sh ~/.gitscripts/gitpush.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
