@@ -81,3 +81,11 @@ git add .
 git commit -m "Automatic Push from script"
 git push
 echo --------------------
+
+cd ..
+cd richtext-editor
+echo Rich Text Editor
+git add .
+git commit -m "Automatic push from script"
+git push
+echo -------------------

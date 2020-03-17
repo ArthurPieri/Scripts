@@ -78,6 +78,10 @@ cd code
     git config --global user.email "git@arthurpieri.com"
     echo 'Git Username'
     git config --global user.name "Arthur Pieri"
+    echo ----------------------
+    echo '11. Cloning Richtext'
+    echo ----------------------
+    git clone git@github.com:ArthurPieri/richtext-editor.git
 
 #-------------------------------------------------------------------------------
 # Setting Up Aliases

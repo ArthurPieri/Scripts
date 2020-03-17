@@ -63,3 +63,9 @@ cd GlobalIP
 echo GlobalIP
 git pull
 echo --------------------
+
+cd ..
+cd richtext-editor
+echo Rich Text Editor
+git pull
+echo -------------------
