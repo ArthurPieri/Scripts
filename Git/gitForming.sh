@@ -98,4 +98,7 @@ cd code
     echo 'Setting up gpush'
     echo "alias gpush='sh ~/.gitscripts/gitpush.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
+    echo 'Setting up gupdate'
+    echo "alias gupdate='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
+    #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
