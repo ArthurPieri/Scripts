@@ -89,3 +89,11 @@ git add .
 git commit -m "Automatic push from script"
 git push
 echo -------------------
+
+cd ..
+cd Pomodoro
+echo Pomodoro
+git add .
+git commit -m "Automatic push from script"
+git push
+echo -------------------

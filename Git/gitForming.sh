@@ -71,7 +71,12 @@ cd code
     git clone git@github.com:ArthurPieri/GlobalIP.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '10. Setting up username and email git'
+    echo '10. Cloning Pomodoro'
+    echo -------------------
+    git clone git@github.com:ArthurPieri/Pomodoro.git
+    #---------------------------------------------------------------------------
+    echo -------------------
+    echo '11. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
     echo -------------------
@@ -79,7 +84,7 @@ cd code
     echo 'Git Username'
     git config --global user.name "Arthur Pieri"
     echo ----------------------
-    echo '11. Cloning Richtext'
+    echo '12. Cloning Richtext'
     echo ----------------------
     git clone git@github.com:ArthurPieri/richtext-editor.git
 

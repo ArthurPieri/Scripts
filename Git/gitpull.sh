@@ -69,3 +69,9 @@ cd richtext-editor
 echo Rich Text Editor
 git pull
 echo -------------------
+
+cd ..
+cd Pomodoro
+echo Pomodoro
+git pull
+echo -------------------
