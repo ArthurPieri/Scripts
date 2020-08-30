@@ -60,12 +60,12 @@ cd code
     echo -------------------
     git clone git@github.com:ArthurPieri/Scripts.git
     #---------------------------------------------------------------------------
-#    echo -------------------
-#    echo '8. Cloning ArthurPieri.github.io'
-#    echo -------------------
-#    git clone git@github.com:ArthurPieri/ArthurPieri.github.io.git
-#    #---------------------------------------------------------------------------
-#    echo -------------------
+    echo -------------------
+    echo '8. Cloning Nhanderu'
+    echo -------------------
+    git clone git@github.com:ArthurPieri/Nhanderu.git
+    #---------------------------------------------------------------------------
+    echo -------------------
     echo '9. Cloning GlobalIP'
     echo -------------------
     git clone git@github.com:ArthurPieri/GlobalIP.git

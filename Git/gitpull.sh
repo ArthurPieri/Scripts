@@ -75,3 +75,9 @@ cd Pomodoro
 echo Pomodoro
 git pull
 echo -------------------
+
+cd ..
+cd Nhanderu
+echo Nhanderu
+git pull
+echo -------------------

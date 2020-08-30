@@ -66,13 +66,13 @@ git commit -m "Automatic Push from script"
 git push
 echo --------------------
 
-#cd ..
-#cd ArthurPieri.github.io
-#echo ArthurPieri.github.io
-#git add .
-#git commit -m "Automatic Push from script"
-#git push
-#echo --------------------
+cd ..
+cd Nhanderu
+echo Nhanderu
+git add .
+git commit -m "Automatic Push from script"
+git push
+echo --------------------
 
 cd ..
 cd GlobalIP
