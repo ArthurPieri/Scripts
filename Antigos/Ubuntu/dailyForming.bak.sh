@@ -37,6 +37,12 @@ f_upgrade
     sudo apt install curl wget openssh-server openssh-client git tar silversearcher-ag -y
     touch /boot/ssh
     #---------------------------------------------------------------------------
+    # Installing Icon pack and Fonts
+    #---------------------------------------------------------------------------
+    sudo add-apt-repository ppa:daniruiz/flat-remix
+    sudo apt-get update
+    sudo apt install flat-remix-gtk fonts-hack-ttf -y
+    #---------------------------------------------------------------------------
     # Instaling Python 3
     #---------------------------------------------------------------------------
     python --version
@@ -45,6 +51,16 @@ f_upgrade
     then
         sudo apt install python3 python3-pip python3-setuptools -y
     fi
+    #---------------------------------------------------------------------------
+    # Installing protonvpn
+    #---------------------------------------------------------------------------  
+    sudo apt install openvpn network-manager-openvpn-gnome resolvconf dialog -y
+    sudo pip3 install protonvpn-cli
+    #---------------------------------------------------------------------------
+    # Installing Gnome Tweak tool
+    # For Dark mode
+    #---------------------------------------------------------------------------
+    sudo apt install gnome-tweak-tool -y
     #---------------------------------------------------------------------------
     # Installing code
     #---------------------------------------------------------------------------  
@@ -78,6 +94,10 @@ f_upgrade
 # Updating and Upgrading the system
 #-------------------------------------------------------------------------------
     f_upgrade
+#-------------------------------------------------------------------------------
+# Removing initrams
+#-------------------------------------------------------------------------------
+    sudo apt remove flash-kernel initramfs-tools
 #-------------------------------------------------------------------------------
 # Fix broken
 #-------------------------------------------------------------------------------
