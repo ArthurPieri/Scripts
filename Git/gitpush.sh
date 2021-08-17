@@ -7,6 +7,8 @@
 #
 #-------------------------------------------------------------------------------
 
+echo 'Automatic Push'
 git add .
 git commit -m "Automatic Push from script"
 git push
+echo 'Done'
