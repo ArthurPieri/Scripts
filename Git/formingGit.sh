@@ -66,9 +66,6 @@ cd code
     cp -r ~/code/Scripts/Git ~/.gitscripts
     echo "alias gall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
-    echo 'Setting up gpush'
-    echo "alias gpush='sh ~/.gitscripts/gitpush.sh'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
     echo 'Setting up Fire (gpushall)'
     echo "alias Fire='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------

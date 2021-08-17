@@ -1,9 +1,6 @@
 # Git Forming
 Creates the 'code' folder and pull all my reopsitories into it and creates all aliases.
 
-# gpush
-Just a quick command to automatically push the current folder.
-
 # gpushall -> Fire
 Automatically push all the repositories in 'code' folder.
 
