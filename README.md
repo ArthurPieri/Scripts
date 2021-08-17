@@ -12,7 +12,7 @@ Here lies older versions or maybe testing scripts
 
 ## Git folder
 
-This folder is used to clone all git repos and setup the 'Gpull' and 'Gpush' aliases
+This folder is used to clone all git repos and setup the 'Gpullall', 'Gpush' and 'Gpushall' aliases
 
 ## After running Vmforming/terraForming
 

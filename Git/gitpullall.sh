@@ -10,31 +10,41 @@
 cd ~/code
 # ------------------------------------------------------------------------------
 cd conceitos_Programacao/
+echo ----------------------
 echo Conceitos programacao
+echo ----------------------
 git pull
 echo ----------------------
 
 cd ..
 cd Gestao/
+echo ----------------------
 echo Gestao
+echo ----------------------
 git pull
 #npm i
 echo ----------------------
 
 cd ..
 cd Scripts/
+echo ----------------------
 echo Usefull Scripts
+echo ----------------------
 git pull
 echo --------------------
 
 cd ..
 cd Pomodoro
+echo ----------------------
 echo Pomodoro
+echo ----------------------
 git pull
 echo -------------------
 
 cd ..
 cd Nhanderu
+echo ----------------------
 echo Nhanderu
+echo ----------------------
 git pull
 echo -------------------

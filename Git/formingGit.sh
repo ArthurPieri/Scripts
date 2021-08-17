@@ -62,17 +62,17 @@ cd code
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     #---------------------------------------------------------------------------
-    echo 'Setting up gpullall'
+    echo 'Setting up gall (gpullall)'
     cp -r ~/code/Scripts/Git ~/.gitscripts
-    echo "alias gpullall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
+    echo "alias gall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gpush'
     echo "alias gpush='sh ~/.gitscripts/gitpush.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
-    echo 'Setting up gpushall'
-    echo "alias gpushall='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
+    echo 'Setting up Fire (gpushall)'
+    echo "alias Fire='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
-    echo 'Setting up gupdate'
-    echo "alias gupdate='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
+    echo 'Setting up gup (gupdate)'
+    echo "alias gup='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
