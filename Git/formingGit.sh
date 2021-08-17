@@ -31,62 +31,33 @@ cd code
     git clone git@github.com:ArthurPieri/conceitos_Programacao.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '2. Cloning UnB'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/UnB.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '3. Cloning Gestao'
+    echo '2. Cloning Gestao'
     echo -------------------
     git clone git@github.com:ArthurPieri/Gestao.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '4. Cloning ChatApp-Udemy'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/ChatApp-udemy.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '5. Cloning Chatbot'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/chatbot.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '6. Cloning Site Arthur'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/siteArthur.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '7. Cloning Scripts'
+    echo '3. Cloning Scripts'
     echo -------------------
     git clone git@github.com:ArthurPieri/Scripts.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '8. Cloning Nhanderu'
+    echo '4. Cloning Nhanderu'
     echo -------------------
     git clone git@github.com:ArthurPieri/Nhanderu.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '9. Cloning GlobalIP'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/GlobalIP.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '10. Cloning Pomodoro'
+    echo '5. Cloning Pomodoro'
     echo -------------------
     git clone git@github.com:ArthurPieri/Pomodoro.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '11. Setting up username and email git'
+    echo '6. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
     echo -------------------
     git config --global user.email "git@arthurpieri.com"
     echo 'Git Username'
     git config --global user.name "Arthur Pieri"
-    echo ----------------------
-    echo '12. Cloning Richtext'
-    echo ----------------------
-    git clone git@github.com:ArthurPieri/richtext-editor.git
 
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
