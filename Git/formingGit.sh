@@ -62,12 +62,15 @@ cd code
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     #---------------------------------------------------------------------------
-    echo 'Setting up gpull'
+    echo 'Setting up gpullall'
     cp -r ~/code/Scripts/Git ~/.gitscripts
-    echo "alias gpull='sh ~/.gitscripts/gitpull.sh'" >> ~/.bashrc
+    echo "alias gpullall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gpush'
     echo "alias gpush='sh ~/.gitscripts/gitpush.sh'" >> ~/.bashrc
+    #---------------------------------------------------------------------------
+    echo 'Setting up gpushall'
+    echo "alias gpushall='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     echo 'Setting up gupdate'
     echo "alias gupdate='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
