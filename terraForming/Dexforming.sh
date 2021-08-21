@@ -45,6 +45,13 @@ f_upgrade
     then
         sudo apt install python3 python3-pip python3-setuptools -y
     fi
+    #---------------------------------------------------------------------------
+    # Instaling Code
+    #---------------------------------------------------------------------------
+    wget https://github.com/cdr/code-server/releases/download/2.1698/code-server2.1698-vsc1.41.1-linux-arm64.tar.gz
+    tar -xvf ./code-server2.1698-vsc1.41.1-linux-arm64.tar.gz
+    cp ./code-server2.1698-vsc1.41.1-linux-arm64/code-server /bin
+
 #-------------------------------------------------------------------------------
 # Creating SSH keys
 #-------------------------------------------------------------------------------
