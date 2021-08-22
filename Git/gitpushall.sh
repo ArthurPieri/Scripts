@@ -57,3 +57,13 @@ git add .
 git commit -m "Automatic push from script"
 git push
 echo -------------------
+
+cd ..
+cd huebot
+echo ----------------------
+echo HUe Bot
+echo ----------------------
+git add .
+git commit -m "Automatic push from script"
+git push
+echo -------------------

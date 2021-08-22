@@ -51,7 +51,12 @@ cd code
     git clone git@github.com:ArthurPieri/Pomodoro.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '6. Setting up username and email git'
+    echo '6. Cloning HueBot'
+    echo -------------------
+    git clone git@github.com:ArthurPieri/huebot.git
+    #---------------------------------------------------------------------------
+    echo -------------------
+    echo '7. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
     echo -------------------

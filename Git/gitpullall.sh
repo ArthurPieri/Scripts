@@ -48,3 +48,11 @@ echo Nhanderu
 echo ----------------------
 git pull
 echo -------------------
+
+cd ..
+cd huebot
+echo ----------------------
+echo HUE Bot
+echo ----------------------
+git pull
+echo -------------------
