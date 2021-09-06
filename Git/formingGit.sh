@@ -56,7 +56,12 @@ cd code
     git clone git@github.com:ArthurPieri/huebot.git
     #---------------------------------------------------------------------------
     echo -------------------
-    echo '7. Setting up username and email git'
+    echo '7. Cloning Tretori'
+    echo -------------------
+    git clone git@github.com:ArthurPieri/Tretori_cadastro.git
+    #---------------------------------------------------------------------------
+    echo -------------------
+    echo '8. Setting up username and email git'
     echo -------------------
     echo 'Git Email'
     echo -------------------

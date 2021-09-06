@@ -56,3 +56,11 @@ echo HUE Bot
 echo ----------------------
 git pull
 echo -------------------
+
+cd ..
+cd Tretori_cadastro
+echo -------------------
+echo Tretori
+echo -------------------
+git pull
+echo -------------------

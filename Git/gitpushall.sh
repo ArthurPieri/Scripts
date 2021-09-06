@@ -67,3 +67,13 @@ git add .
 git commit -m "Automatic push from script"
 git push
 echo -------------------
+
+cd ..
+cd Tretori_cadastro
+echo -------------------
+echo Tretori
+echo -------------------
+git add .
+git commit -m "Automatic push from script"
+git push
+echo -------------------
