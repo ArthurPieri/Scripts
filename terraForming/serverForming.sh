@@ -58,6 +58,20 @@
         sudo apt autoclean -y
     }
 #-------------------------------------------------------------------------------
+# Creating SSH key
+#-------------------------------------------------------------------------------
+    echo -------------------
+    echo 'Setting up SSH key'
+    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519_ssh -C "server@arthurpieri.com"
+    eval "$(ssh-agent -s)"
+    SSH_AGENT=$?
+    if [ ${SSH_AGENT} -ne 0 ]
+    then
+        echo 'Setting ssh passphrase to ssh agent'
+        ssh-add ~/.ssh/id_ed25519_ssh
+    fi
+    echo -------------------
+#-------------------------------------------------------------------------------
 # Creating services folder
 #-------------------------------------------------------------------------------
     cd ~/
@@ -86,22 +100,91 @@
 #-------------------------------------------------------------------------------
     sudo ufw allow 'Nginx Full'
 #-------------------------------------------------------------------------------
-# Creating SSH key
+# Setting up server blocks
 #-------------------------------------------------------------------------------
-    echo -------------------
-    echo 'Setting up SSH key'
-    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519_ssh -C "server@arthurpieri.com"
-    eval "$(ssh-agent -s)"
-    SSH_AGENT=$?
-    if [ ${SSH_AGENT} -ne 0 ]
-    then
-        echo 'Setting ssh passphrase to ssh agent'
-        ssh-add ~/.ssh/id_ed25519_ssh
-    fi
-    echo -------------------
+    echo -----------------------------------
+    # It could be better to do a while loop in here, leaving only when user inputs correctly
+    answer='n'
+    while [[ ! $answer =~ ^[Yy]$ ]]
+    do 
+        echo -----------------------------------
+        echo Please insert your domain name here
+        echo -----------------------------------
+        read domain_name
+        echo "is $domain_name correct (y or n)?"
+        read answer
+        echo
+    done
+    echo -----------------------------------
+    echo "Creating a folder with the domain name provided"
+    sudo mkdir -p /var/www/$domain_name/html
+    echo "changing permisions"
+    sudo chown -R $USER:$USER /var/www/$domain_name/html
+    echo "ensuring permisions are correct"
+    sudo chmod -R 755 /var/www/$domain_name
+    echo "creating a dumb html file"
+    touch /var/www/$domain_name/html/index.html
+    echo "<html>
+    <head>
+        <title>Welcome to $domain_name!</title>
+    </head>
+    <body>
+        <h1>Success!  The $domain_name server block is working!</h1>
+    </body>
+    </html>" >> /var/www/$domain_name/html/index.html
+    # Nginx server blocks
+    echo "creating a new config file for nginx"
+    touch /etc/nginx/sites-available/$domain_name
+    echo "server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/$domain_name/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name $domain_name www.$domain_name;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+    }" >> /etc/nginx/sites-available/$domain_name
+    echo "Creating simbolic link"
+    sudo ln -s /etc/nginx/sites-available/$domain_name /etc/nginx/sites-enabled/
+    
+    echo "Changing nginx config"
+    search="# server_names_hash_bucket_size 64;"
+    replace="server_names_hash_bucket_size 64;"
+    sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
+    
+    echo "Testing nginx config files"
+    sudo nginx -t
+    
+    echo "Restarting Nginx"
+    sudo systemctl restart nginx
+#-------------------------------------------------------------------------------
+# Setting Up Certbot
+#-------------------------------------------------------------------------------
+    echo "Installing "
+    sudo apt install certbot python3-certbot-nginx
+
+    # Checking if user made the DNS configuration
+    answer='n'
+    while [[ ! $answer =~ ^[Yy]$ ]]
+    do 
+        echo -----------------------------------
+        echo "Did you point the dns from $domain_name to the correct IP?"
+        echo -----------------------------------
+        read answer
+        echo
+    done
+
+    echo "Starting certbot"
+    sudo certbot --nginx -d $domain_name -d www.$domain_name
+    
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
-    echo 'Setting Up Atualizar'
+#-------------------------------------------------------------------------------
+    echo 'Setting Up atualizar'
     echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
