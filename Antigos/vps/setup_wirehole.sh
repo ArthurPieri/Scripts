@@ -16,7 +16,7 @@ echo Entering folder
 cd services
 
 # Prereqs and docker
-sudo apt-get update &&
+    sudo apt-get update &&
     sudo apt-get install -yqq \
         curl \
         git \

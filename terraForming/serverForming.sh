@@ -99,7 +99,18 @@
 #---------------------------------------------------------------------------
 # Installing ssh, Git, Curl, Tar, openvpn and nginx
 #---------------------------------------------------------------------------
-    sudo apt install openssh-server openssh-client git python3-pip nginx -y
+    sudo apt-get install -yqq \
+        curl \
+        git \
+        apt-transport-https \
+        ca-certificates \
+        gnupg-agent \
+        software-properties-common \
+        openssh-server \
+        openssh-client \
+        git \
+        python3-pip \
+        nginx -y
     sudo touch /boot/ssh
 #-------------------------------------------------------------------------------
 # Changing ufw configuration
@@ -195,15 +206,20 @@
         mkdir services
         echo creating Folder
     fi
-    echo Entering folder
+    echo "Entering folder services"
     cd services
 
 #-------------------------------------------------------------------------------
 # Setting Up docker Compose and docker
 #-------------------------------------------------------------------------------
     echo "Download and install Docker"
-    curl -sL https://get.docker.com | sh
-    sudo usermod -aG docker ap
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable" &&
+    sudo apt-get update &&
+    sudo apt-get install docker-ce docker-ce-cli containerd.io -yqq
 
     echo "Dowloading docker-compose version 1.26.2 from github"
     sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&
@@ -213,6 +229,15 @@
     echo "Testing the command"
     echo ---
     docker-compose --version
+
+#-------------------------------------------------------------------------------
+# Setting Up wirehole
+#-------------------------------------------------------------------------------
+    git clone https://github.com/IAmStoxe/wirehole.git &&
+    cd ~/services/wirehole
+    # Wireguard Client change in allowed IPs
+    # Modify your wireguard client AllowedIps to 10.2.0.0/24 to only tunnel the web panel and DNS traffic.
+
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
 #-------------------------------------------------------------------------------
