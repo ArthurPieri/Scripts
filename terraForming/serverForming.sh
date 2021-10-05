@@ -180,7 +180,7 @@
 
     echo "Starting certbot"
     sudo certbot --nginx -d $domain_name -d www.$domain_name
-    
+
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
 #-------------------------------------------------------------------------------
@@ -196,6 +196,13 @@
 # Fix broken
 #-------------------------------------------------------------------------------
     sudo apt --fix-broken install -y
+    
+    echo "Next:"
+    echo "Install wirehole (can be found in ../VPS/setup_wirehole.sh"
+    echo "Install Ghost.js (can be found in ../VPS/ghostjs.sh"
+    echo
+    echo
+    
     echo -------------------
     echo 'The end'
     echo -------------------
