@@ -42,9 +42,9 @@
 #-------------------------------------------------------------------------------
     echo Did you run createuser.sh script first?
     read -p "Are you sure? (y or n): " -n 1 -r
-    echo    # (optional) move to a new line
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
+        echo "Please setup the user first"
         exit 1
     fi 
 #-------------------------------------------------------------------------------
@@ -74,8 +74,8 @@
 #-------------------------------------------------------------------------------
 # Setting up Firewall
 #-------------------------------------------------------------------------------
-    ufw allow OpenSSH
-    ufw enable
+    sudo ufw allow OpenSSH
+    sudo ufw enable
 #-------------------------------------------------------------------------------
 # Updating and Upgrading the system
 #-------------------------------------------------------------------------------
@@ -113,7 +113,7 @@
     echo "ensuring permisions are correct"
     sudo chmod -R 755 /var/www/$domain_name
     echo "creating a dumb html file"
-    touch /var/www/$domain_name/html/index.html
+    sudo touch /var/www/$domain_name/html/index.html
     echo "<html>
     <head>
         <title>Welcome to $domain_name!</title>
@@ -124,7 +124,7 @@
     </html>" >> /var/www/$domain_name/html/index.html
     # Nginx server blocks
     echo "creating a new config file for nginx"
-    touch /etc/nginx/sites-available/$domain_name
+    sudo touch /etc/nginx/sites-available/$domain_name
     echo "server {
         listen 80;
         listen [::]:80;
@@ -205,9 +205,6 @@
     echo "Testing the command"
     echo ---
     docker-compose --version
-
-
-
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
 #-------------------------------------------------------------------------------
@@ -233,3 +230,9 @@
     echo -------------------
     echo 'The end'
     echo -------------------
+
+    # References Links
+    # https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
+    # https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
+    # https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04-pt
+    # https://www.santoshsrinivas.com/solving-the-maximum-file-size-error-on-ghost-nginx/
