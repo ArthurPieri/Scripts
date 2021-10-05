@@ -72,16 +72,6 @@
     fi
     echo -------------------
 #-------------------------------------------------------------------------------
-# Creating services folder
-#-------------------------------------------------------------------------------
-    cd ~/
-    if [ ! -d "$services" ]; then
-        mkdir services
-        echo creating Folder
-    fi
-    echo Entering folder
-    cd services
-#-------------------------------------------------------------------------------
 # Setting up Firewall
 #-------------------------------------------------------------------------------
     ufw allow OpenSSH
@@ -156,6 +146,15 @@
     replace="server_names_hash_bucket_size 64;"
     sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
     
+    echo "Changing max file size"
+    search="http {
+    "
+    replace="http {
+    
+    client_max_body_size 5m;
+    "
+    sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
+
     echo "Testing nginx config files"
     sudo nginx -t
     
@@ -180,6 +179,34 @@
 
     echo "Starting certbot"
     sudo certbot --nginx -d $domain_name -d www.$domain_name
+
+#-------------------------------------------------------------------------------
+# Creating services folder
+#-------------------------------------------------------------------------------
+    cd ~/
+    if [ ! -d "$services" ]; then
+        mkdir services
+        echo creating Folder
+    fi
+    echo Entering folder
+    cd services
+
+#-------------------------------------------------------------------------------
+# Setting Up docker Compose and docker
+#-------------------------------------------------------------------------------
+    echo "Download and install Docker"
+    curl -sL https://get.docker.com | sh
+    sudo usermod -aG docker ap
+
+    echo "Dowloading version 2.0.1 from github"
+    sudo curl -L "https://github.com/docker/compose/releases/download/2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+
+    echo "Testing the command"
+    echo ---
+    docker-compose --version
+
+
 
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
