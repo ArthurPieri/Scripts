@@ -36,17 +36,33 @@
         echo "Test"
     # Set -x start the debug mode
         set -x
-    fi
+    fi 
 #-------------------------------------------------------------------------------
 # Checking if user has runned createuser.sh first
 #-------------------------------------------------------------------------------
-    echo Did you run createuser.sh script first?
-    read -p "Are you sure? (y or n): " -n 1 -r
-    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    echo "Did you run createuser.sh script first?"
+    read CREATEUSER
+    if [ "$CREATEUSER" != "y" ] 
     then
-        echo "Please setup the user first"
-        exit 1
+        if [ "$CREATEUSER" != "Y" ]
+        then
+            echo "Please setup the user first"
+            exit 1
+        fi
     fi 
+#-------------------------------------------------------------------------------
+# Checking if this file is correct
+#-------------------------------------------------------------------------------
+    echo "Did you made this file executable? (y or n)"
+    read expermision 
+    if [ "$expermision" != "y" ]
+    then
+        if [ "$expermision" != "Y" ]
+        then
+            echo "Please run: chmod +x serverForming.sh"
+            exit 1
+        fi
+    fi
 #-------------------------------------------------------------------------------
 # All the functions with 'f_' so there are no mistakes with variables
 # Functions Declarations
