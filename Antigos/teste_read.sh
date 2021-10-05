@@ -59,3 +59,10 @@
 #search="#mano"
 #replace="Aragorn"
 #sed -i "s/$search/$replace/" $filename
+
+    echo Did you run createuser.sh script first?
+    read -p "Are you sure? (y or n): " -n 1 -r
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        exit 1
+    fi 
