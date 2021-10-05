@@ -84,7 +84,7 @@
 # Installing ssh, Git, Curl, Tar, openvpn and nginx
 #---------------------------------------------------------------------------
     sudo apt install openssh-server openssh-client git python3-pip nginx -y
-    touch /boot/ssh
+    sudo touch /boot/ssh
 #-------------------------------------------------------------------------------
 # Changing ufw configuration
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@
     <body>
         <h1>Success!  The $domain_name server block is working!</h1>
     </body>
-    </html>" >> /var/www/$domain_name/html/index.html
+    </html>" | sudo tee -a /var/www/$domain_name/html/index.html
     # Nginx server blocks
     echo "creating a new config file for nginx"
     sudo touch /etc/nginx/sites-available/$domain_name
@@ -137,23 +137,14 @@
         location / {
                 try_files $uri $uri/ =404;
         }
-    }" >> /etc/nginx/sites-available/$domain_name
+    }" | sudo tee -a /etc/nginx/sites-available/$domain_name
     echo "Creating simbolic link"
     sudo ln -s /etc/nginx/sites-available/$domain_name /etc/nginx/sites-enabled/
     
     echo "Changing nginx config"
     search="# server_names_hash_bucket_size 64;"
     replace="server_names_hash_bucket_size 64;"
-    sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
-    
-    echo "Changing max file size"
-    search="http {
-    "
-    replace="http {
-    
-    client_max_body_size 5m;
-    "
-    sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
+    sudo sed -i "s/$search/$replace/" /etc/nginx/nginx.conf
 
     echo "Testing nginx config files"
     sudo nginx -t
