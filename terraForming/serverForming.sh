@@ -243,6 +243,7 @@
 #-------------------------------------------------------------------------------
     echo 'Setting Up atualizar'
     echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'" >> ~/.bashrc
+    echo "alias sage='eval `ssh-agent -s` && ssh-add ~/.ssh/id_ed25519_ssh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
 #-------------------------------------------------------------------------------
