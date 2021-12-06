@@ -78,13 +78,13 @@
 #-------------------------------------------------------------------------------
     echo -------------------
     echo 'Setting up SSH key'
-    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519_ssh -C "server@arthurpieri.com"
+    ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "server@arthurpieri.com"
     eval "$(ssh-agent -s)"
     SSH_AGENT=$?
     if [ ${SSH_AGENT} -ne 0 ]
     then
         echo 'Setting ssh passphrase to ssh agent'
-        ssh-add ~/.ssh/id_ed25519_ssh
+        ssh-add ~/.ssh/id_ed25519
     fi
     echo -------------------
 #-------------------------------------------------------------------------------
@@ -243,7 +243,6 @@
 #-------------------------------------------------------------------------------
     echo 'Setting Up atualizar'
     echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'" >> ~/.bashrc
-    echo "alias sage='eval `ssh-agent -s` && ssh-add ~/.ssh/id_ed25519_ssh'" >> ~/.bashrc
     #---------------------------------------------------------------------------
     alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
 #-------------------------------------------------------------------------------
