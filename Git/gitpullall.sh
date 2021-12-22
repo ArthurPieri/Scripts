@@ -9,7 +9,7 @@
 # TO DO
 # - Make the script loop through the code directory and automaticaly find folders and commit
 #-------------------------------------------------------------------------------
-#
+# TODO Automatizar a chamada das pastas
 #-------------------------------------------------------------------------------
 # Entering the coding folder to start pulling
 cd ~/code
