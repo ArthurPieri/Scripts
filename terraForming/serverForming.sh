@@ -53,7 +53,7 @@
 #-------------------------------------------------------------------------------
 # Checking if this file is correct
 #-------------------------------------------------------------------------------
-    echo "Did you made this file executable? (y or n)"
+    echo "Did you make this file executable? (y or n)"
     read expermision 
     if [ "$expermision" != "y" ]
     then
