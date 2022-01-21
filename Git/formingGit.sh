@@ -2,7 +2,7 @@
 #
 # /HEADER/
 # Cloning all my github accounts
-# This script is currently on v2
+# This script is currently on v3
 # Author: Arthur Pieri
 #
 #-------------------------------------------------------------------------------
@@ -63,23 +63,6 @@ do
     echo
 done
 #-------------------------------------------------------------------------------
-# Getting max pages
-#-------------------------------------------------------------------------------
-clear
-answer='n'
-while [[ ! $answer =~ ^[Yy]$ ]]
-do 
-    echo "###########################################"
-    echo "Please insert the max number of pages (max: 100)"
-    echo "###########################################"
-    read max
-    echo "###########################################"
-    echo "is $max correct (y or n)?"
-    echo "###########################################"
-    read answer
-    echo
-done
-#-------------------------------------------------------------------------------
 # Getting user email
 #-------------------------------------------------------------------------------
 clear
@@ -96,28 +79,21 @@ do
     read answer
     echo
 done
-
 #-------------------------------------------------------------------------------
 # Printing infos
 #-------------------------------------------------------------------------------
 clear
-cntx="users"
-page=1
 echo "###########################################"
 echo "The username is: $name"
 echo "The user email is: $email"
-echo "The max number of page is: $max"
-echo "You are getting: $cntx repos"
-echo "We are starting from page: $page"
 echo "###########################################"
-sleep 5
+sleep 3
 
 #-------------------------------------------------------------------------------
 # Cloning repos
 #-------------------------------------------------------------------------------
 
-curl "https://api.github.com/$cntx/$name/repos?page=$page&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
-sleep 2
+curl "https://api.github.com/users/$name/repos?page=1&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
 
 echo "###########################################"
 echo 'Setting up username and email git'
