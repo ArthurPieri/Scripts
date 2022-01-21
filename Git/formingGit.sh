@@ -8,78 +8,159 @@
 #-------------------------------------------------------------------------------
 # Verifying if git exists on the computer
 #-------------------------------------------------------------------------------
+echo "###########################################"
 git --version
+echo "###########################################"
 GIT_VERSION=$?
 if [ ${GIT_VERSION} -ne 0 ]
 then
-    exit 1
+sudo apt install git
 fi
 #-------------------------------------------------------------------------------
-# Entering the 'code' folder to start pulling
+# Creating 'code' Folder
 #-------------------------------------------------------------------------------
+clear
 cd ~/
 if [ ! -d "$code" ]; then
     mkdir code
-    echo creating Folder
+    echo "###########################################"
+    echo "creating Folder code"
 fi
-echo Entering folder
+echo "###########################################"
+echo "Entering code"
 cd code
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '1. Cloning Conceitos Programacao'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/conceitos_Programacao.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '2. Cloning Gestao'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Gestao.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '3. Cloning Scripts'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Scripts.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '4. Cloning Nhanderu'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Nhanderu.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '5. Cloning Pomodoro'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Pomodoro.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '6. Cloning HueBot'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/huebot.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '7. Cloning Tretori'
-    echo -------------------
-    git clone git@github.com:ArthurPieri/Tretori_cadastro.git
-    #---------------------------------------------------------------------------
-    echo -------------------
-    echo '8. Setting up username and email git'
-    echo -------------------
-    echo 'Git Email'
-    echo -------------------
-    git config --global user.email "git@arthurpieri.com"
-    echo 'Git Username'
-    git config --global user.name "Arthur Pieri"
+
+#-------------------------------------------------------------------------------
+# Checking if this file is correct
+#-------------------------------------------------------------------------------
+echo "###########################################"
+echo "Did you make this file executable? (y or n)"
+echo "###########################################"
+read expermision 
+if [ "$expermision" != "y" ]
+then
+    if [ "$expermision" != "Y" ]
+    then
+        echo "Please run: chmod +x serverForming.sh"
+        exit 1
+    fi
+fi
+#-------------------------------------------------------------------------------
+# Getting Username
+#-------------------------------------------------------------------------------
+clear
+answer='n'
+while [[ ! $answer =~ ^[Yy]$ ]]
+do 
+    echo "###########################################"
+    echo Please insert your username here
+    echo "###########################################"
+    read name
+    echo "###########################################"
+    echo "is $name correct (y or n)?"
+    echo "###########################################"
+    read answer
+    echo
+done
+#-------------------------------------------------------------------------------
+# Getting max pages
+#-------------------------------------------------------------------------------
+clear
+answer='n'
+while [[ ! $answer =~ ^[Yy]$ ]]
+do 
+    echo "###########################################"
+    echo "Please insert the max number of pages (max: 100)"
+    echo "###########################################"
+    read max
+    echo "###########################################"
+    echo "is $max correct (y or n)?"
+    echo "###########################################"
+    read answer
+    echo
+done
+#-------------------------------------------------------------------------------
+# Getting user email
+#-------------------------------------------------------------------------------
+clear
+answer='n'
+while [[ ! $answer =~ ^[Yy]$ ]]
+do 
+    echo "###########################################"
+    echo "Please insert the user email"
+    echo "###########################################"
+    read email
+    echo "###########################################"
+    echo "is $email correct (y or n)?"
+    echo "###########################################"
+    read answer
+    echo
+done
+
+#-------------------------------------------------------------------------------
+# Printing infos
+#-------------------------------------------------------------------------------
+clear
+cntx="users"
+page=1
+echo "###########################################"
+echo "The username is: $name"
+echo "The user email is: $email"
+echo "The max number of page is: $max"
+echo "You are getting: $cntx repos"
+echo "We are starting from page: $page"
+echo "###########################################"
+sleep 5
+
+#-------------------------------------------------------------------------------
+# Cloning repos
+#-------------------------------------------------------------------------------
+
+curl "https://api.github.com/$cntx/$name/repos?page=$page&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
+sleep 2
+
+echo "###########################################"
+echo 'Setting up username and email git'
+echo "###########################################"
+echo 'Git email: '$email
+echo "###########################################"
+git config --global user.email "$email"
+
+echo 'Git Username' $name
+sleep 2
+git config --global user.name "$name"
 
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
-    #---------------------------------------------------------------------------
-    echo 'Setting up gall (gpullall)'
-    cp -r ~/code/Scripts/Git ~/.gitscripts
-    echo "alias gall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
-    echo 'Setting up Fire (gpushall)'
-    echo "alias Fire='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
-    echo 'Setting up gup (gupdate)'
-    echo "alias gup='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
-    #---------------------------------------------------------------------------
-    alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
+#---------------------------------------------------------------------------
+clear
+answer='n'
+echo "###########################################"
+echo "Do you want to create the Aliases?"
+echo "###########################################"
+read answer
+if [ "$answer" != "y" ]
+    then
+        if [ "$answer" != "Y" ]
+        then
+            echo "###########################################"
+            echo "Skiping aliases"
+            echo "###########################################"
+            sleep 3
+            exit 0
+        fi
+fi
+
+echo 'Setting up gall (gpullall)'
+cp -r ~/code/Scripts/Git ~/.gitscripts
+echo "alias gall='sh ~/.gitscripts/gitpullall.sh'" >> ~/.bashrc
+#---------------------------------------------------------------------------
+echo 'Setting up Fire (gpushall)'
+echo "alias Fire='sh ~/.gitscripts/gitpushall.sh'" >> ~/.bashrc
+#---------------------------------------------------------------------------
+echo 'Setting up gup (gupdate)'
+echo "alias gup='sh ~/.gitscripts/gitupdate.sh'" >> ~/.bashrc
+#---------------------------------------------------------------------------
+alias brc='chmod a+x ~/.bashrc; source ~/.bashrc' 
+
+exit 0
