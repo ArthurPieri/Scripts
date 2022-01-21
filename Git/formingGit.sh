@@ -93,7 +93,7 @@ sleep 3
 # Cloning repos
 #-------------------------------------------------------------------------------
 
-curl "https://api.github.com/users/$name/repos?page=1&per_page=100" | grep -e 'git_url*' | cut -d \" -f 4 | xargs -L1 git clone
+curl "https://api.github.com/users/$name/repos?page=1&per_page=100" | grep -e 'ssh_url*' | cut -d \" -f 4 | xargs -L1 git clone && echo 'git_url*'
 
 echo "###########################################"
 echo 'Setting up username and email git'
