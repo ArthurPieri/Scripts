@@ -146,6 +146,11 @@ git config --global user.name "$name"
     unzip awscliv2.zip
     sudo ./aws/install
 #-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Installing serverless
+#-------------------------------------------------------------------------------
+    npm install -g serverless
+#-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
     echo "alias atualizar='sudo apt update && sudo apt upgrade -y && sudo apt autoremove'" >> ~/.bashrc
