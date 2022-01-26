@@ -93,7 +93,7 @@ sleep 3
     #---------------------------------------------------------------------------
     # Installing ssh, Git, Curl, Tar
     #---------------------------------------------------------------------------
-    sudo apt install curl wget openssh-server openssh-client git tar silversearcher-ag -y
+    sudo apt install curl wget openssh-server openssh-client git tar silversearcher-ag unzip -y
     touch /boot/ssh
     #---------------------------------------------------------------------------
     # Instaling Python 3
@@ -108,6 +108,10 @@ sleep 3
     # Instaling Node Version Manager
     #---------------------------------------------------------------------------
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    nvm install node
+    node -v
+    npm -v
+    sleep 3
 #-------------------------------------------------------------------------------
 # Creating SSH keys
 #-------------------------------------------------------------------------------
@@ -135,6 +139,12 @@ echo 'Git Username' $name
 sleep 2
 git config --global user.name "$name"
 
+#-------------------------------------------------------------------------------
+# Installing aws cli
+#-------------------------------------------------------------------------------
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
 #-------------------------------------------------------------------------------
 # Setting Up Aliases
     echo 'Setting Up Atualizar'
