@@ -25,7 +25,7 @@ if [ "$expermision" != "y" ]
 then
     if [ "$expermision" != "Y" ]
     then
-        echo "Please run: chmod +x serverForming.sh"
+        echo "Please run: chmod +x terraForming.sh"
         exit 1
     fi
 fi
