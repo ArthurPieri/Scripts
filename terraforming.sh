@@ -18,7 +18,7 @@ fi
 # Checking if this file is correct
 #-------------------------------------------------------------------------------
 echo "###########################################"
-echo "Did you make this file executable? (y or n)"
+echo "Did you run 'chmod +x nomearquivo.sh?' (y or n)"
 echo "###########################################"
 read expermision 
 if [ "$expermision" != "y" ]
@@ -52,7 +52,7 @@ answer='n'
 while [[ ! $answer =~ ^[Yy]$ ]]
 do 
     echo "###########################################"
-    echo Please insert your username here
+    echo Please insert your Github username here
     echo "###########################################"
     read name
     echo "###########################################"
@@ -69,7 +69,7 @@ answer='n'
 while [[ ! $answer =~ ^[Yy]$ ]]
 do 
     echo "###########################################"
-    echo "Please insert the user email"
+    echo "Please insert the Github email"
     echo "###########################################"
     read email
     echo "###########################################"
