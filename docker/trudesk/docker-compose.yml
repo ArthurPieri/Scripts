@@ -1,0 +1,45 @@
+version: '3'
+
+networks:
+  ap-tools:
+    driver: bridge
+
+services:
+
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+    restart: unless-stopped
+    ports:
+      - 80:80
+    networks:
+      - ap-tools
+
+  mongodb:
+    depends_on: [nginx-proxy]
+    image: mongo:3.6
+    volumes: 
+      - /data/db:/data/db
+      - /data/configdb:/data/configdb
+    networks:
+      - ap-tools
+    restart: unless-stopped
+
+  trudesk:
+    depends_on: [nginx-proxy, mongodb]
+    image: polonel/trudesk:1.0
+    links: [mongodb:mongodb]
+    volumes:
+      - /data/trudesk/uploads:/usr/src/trudesk/public/uploads
+      - /data/trudesk/plugins:/usr/src/trudesk/plugins
+      - /data/trudesk/backups:/usr/src/trudesk/backups
+    environment:
+      - NODE_ENV=production
+      - TRUDESK_DOCKER=true
+      - TD_MONGODB_SERVER=mongodb
+      - TD_MONGODB_DATABASE=trudesk
+      - VIRTUAL_HOST=helpdesk.pieri.tech
+    networks:
+      - ap-tools
+    restart: unless-stopped
