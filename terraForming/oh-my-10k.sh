@@ -22,7 +22,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 sudo apt install ruby-full
 
 # install colorsls
-sudo gem install colorsls
+sudo gem install colorls
 
 # Configurando o p10k
 p10k configure
