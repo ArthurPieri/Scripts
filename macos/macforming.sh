@@ -37,6 +37,13 @@ asdf global python latest
 asdf install nodejs latest
 asdf global nodejs latest
 
+# install rust
+asdf install rust latest
+asdf global rust latest
+
+# install yarn
+npm install --global yarn
+
 # install bat
 brew install bat
 
